@@ -11,4 +11,5 @@ class Solution:
                 j = nums.index(diff)
                 if i!= j:
                     return [i,j]
-            else: continue
+            else:
+                continue
