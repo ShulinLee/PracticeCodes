@@ -12,15 +12,18 @@ class Solution:
         :rtype: int
         """
         table = {'I':1,'V':5,'X':10,'L':50,'C':100,'D':500,'M':1000}
-        num = 0;err = 0
-        s1 = s + 'I'
-        for i in range(len(s)):
-             if (s1[i] == 'I' and ((s1[i+1] == 'V') or(s1[i+1] == 'X'))) or (s1[i] == 'X' and ((s1[i+1] == 'L') or (s1[i+1] == 'C'))) or (s1[i] == 'C' and ((s1[i+1] == 'D') or (s1[i+1] =='M'))):
-                        num += (table[s1[i+1]] - table[s1[i]])
-                        err += table[s1[i+1]]
-             else: 
-                 num += table[s[i]]               
-        return num-err
+        i = 0;result = 0
+        matches = {('I','V'),('I','X'),('X','L'),('X','C'),('C','D'),('C','M')}
+        while i < len(s) -1:
+            if (s[i],s[i+1]) in matches:
+                result += table[s[i+1]] - table[s[i]]
+                i += 2
+            else:
+                result += table[s[i]]
+                i += 1
+        if i == len(s) -1:
+            result += table[s[-1]]
+        return result
 if __name__ == '__main__':
     a = Solution()
     print(a.romanToInt('MCMXCIV'))
