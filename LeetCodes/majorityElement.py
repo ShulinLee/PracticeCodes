@@ -4,14 +4,15 @@ class Solution:
         :type nums: List[int]
         :rtype: int
         """
-        dic = {}
-        maximum = 0
+        cnt,majority = 0,None
         for num in nums:
-        	dic[num] = dic.get(num,0) + 1
-        	if dic[num] > maximum:
-        		maximum = dic[num]
-	        	if maximum > len(nums) // 2:
-	        		return num
+        	if cnt == 0:
+        		majority = num
+        	if majority == num:
+        		cnt += 1
+        	else:
+        		cnt -= 1
+        return majority
 
 if __name__ == '__main__':
 	a = Solution()
