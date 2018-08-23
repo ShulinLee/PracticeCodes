@@ -5,13 +5,11 @@ class Solution:
         :type k: int
         :rtype: void Do not return anything, modify nums in-place instead.
         """
-        while k > 0 and nums != []:
-        	nums.insert(0,nums[-1])
-        	del nums[-1]
-        	k -= 1
+        n = len(nums) - k
+        nums[:] = nums[n:] + nums[:n]
 
 if __name__ == '__main__':
 	a = Solution()
-	nums = []
-	a.rotate(nums,2)
+	nums = [1,2,3,4,5,6,7]
+	a.rotate(nums,3)
 	print(nums)
