@@ -4,8 +4,8 @@ class Solution:
         :type n: int
         :rtype: bool
         """
-        history = [];cur = n
-        while (cur != 1) and (cur not in history):
-        	cur = sum([int(num)**2 for num in str(cur)])
-        	history.append(cur)
-        return True if cur == 1 else False
+ 		lookup = {}
+ 		while n != 1 and n not in lookup:
+ 			lookup[n] == True
+ 			n = sum([int(num)**2 for num in str(n)])
+ 		return n == 1
