@@ -7,11 +7,8 @@ class Solution:
         """
         if len(s) != len(t):
         	return False
-        return self.countDict(s) == self.countDict(t)
+        for ch in set(s):
+        	if s.count(ch) != t.count(ch):
+        		return False
+        return True
 
-    def countDict(self,str):
-    	dic = {}
-    	for ch in str:
-    		dic[ch] = dic.get(ch,0)
-    		dic[ch] += 1
-    	return dic
